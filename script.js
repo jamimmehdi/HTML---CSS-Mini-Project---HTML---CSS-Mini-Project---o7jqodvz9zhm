@@ -14,23 +14,23 @@ let candidates = {
         {
             candidateName: 'Mokasafat Amir Behesti',
             course: 'B.Tech',
-            graduationYear: '2020',
-            profileImage: './images/candidate-profile.jpg',
-            candidateDesc: 'Final year BCA student at The Oxford College of Science, Bangalore with excellent problem solving skills and ability to perform in a team. Ambitious to kick start the career with a globally recognized organization which will give me exposure to enhance my skills and knowledge for mutual benefits of the organization.',
-            skills: ['Fullstack', 'Frontend', 'Backend', 'React', 'Node JS', 'Mongo DB'],
-            referalScore: '820',
-            sortlistedCompany: '4'
+            graduationYear: '2019',
+            profileImage: 'https://amirbehesti.netlify.app/assets/images/profile-image.jpg',
+            candidateDesc: "I completed my B.Tech in Electrical Engineering by the mid of 2019, After that I was preparing for core Electrical jobs, and then in a span of 4-5 months COVID pandemic started. Since My teenage I'm always a Technology lover & love to explore new technologies, during pandemic many of my friends got placed with dream jobs which was a big Motivation for me. Then I set up my mind, and I started learning coding and learning new languages. I am a quick learner and eager to learn more and I am also try to most efficient in the work that i am given.",
+            skills: ['Fullstack', 'Frontend', 'React', 'Node JS'],
+            referalScore: '850',
+            sortlistedCompany: '6'
         },
 
         {
-            candidateName: 'Jamim Mehdi Hussain Khan',
-            course: 'BCA',
-            graduationYear: '2021',
-            profileImage: './images/candidate-profile.jpg',
-            candidateDesc: 'Final year BCA student at The Oxford College of Science, Bangalore with excellent problem solving skills and ability to perform in a team. Ambitious to kick start the career with a globally recognized organization which will give me exposure to enhance my skills and knowledge for mutual benefits of the organization.',
-            skills: ['Fullstack', 'Frontend', 'Backend', 'React', 'Node JS', 'Mongo DB'],
-            referalScore: '820',
-            sortlistedCompany: '4'
+            candidateName: 'SOURAV BANERJEE',
+            course: 'B.Tech',
+            graduationYear: '2020',
+            profileImage: 'https://souravbanerjee.netlify.app/assets/images/profile-image.jpg',
+            candidateDesc: "I completed my B. Tech in Computer science in 2020, just when COVID pandemic started. Didn't apply for any of college campus program because at that time i had something else in mind, which didn't went on course as i expected. After a year and a half i started practicing coding again and learning new languages. I am a quick learner and eager to learn more and i am also try to most efficient in the work that i am given.",
+            skills: ['DSA', 'Backend', 'Node JS', 'Mongo DB'],
+            referalScore: '840',
+            sortlistedCompany: '5'
         },
 
         {
@@ -69,7 +69,16 @@ for (let i of candidates.data) {
 
     let cand_name = document.createElement('p');
     cand_name.classList.add('cand-name');
-    cand_name.textContent = i.candidateName;
+
+    let capitalizeName = i.candidateName.toLowerCase();
+    let nameArray = capitalizeName.split(' ');
+    for (let k = 0; k < nameArray.length; k++) {
+        
+        nameArray[k] = nameArray[k].charAt(0).toUpperCase() + nameArray[k].slice(1);
+    }
+    let capitalizedName = nameArray.join(' ');
+
+    cand_name.textContent = capitalizedName;
 
     let cand_grad = document.createElement('p');
     cand_grad.classList.add('cand-grad');
