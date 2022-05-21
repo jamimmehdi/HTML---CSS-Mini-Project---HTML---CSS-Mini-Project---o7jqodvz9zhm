@@ -45,6 +45,7 @@ document.getElementById('search-input').onblur = function() {
     document.getElementById('search-bar').classList.remove('outline');
 }
 
+//Create candidate cards with all elements
 for (let i of candidates.data) {
     // console.log(i)
     //Create candidate card

@@ -18,6 +18,7 @@
     --search-background: #f4fafc;
     --para-color: #0f2b3c;
     --hover-button: #efefef;
+    --button-hover-red: #ef6556;
 }
 
 * {
@@ -213,6 +214,9 @@ body {
     height: 100%;
     overflow-x: hidden;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }
 
 .container .body-wrapper .body-content .left-panel .com-profile-conainer{
@@ -385,6 +389,10 @@ body {
     column-gap: 0.5rem;
 }
 
+.container .body-wrapper .body-content .middle-panel .candidate-wrapper .candidate .profile-title-wrapper .button-wrapper button:hover {
+    background-color: var(--hover-button);
+}
+
 .container .body-wrapper .body-content .middle-panel .candidate-wrapper .candidate .cand-desc {
     font-size: 0.7rem;
     color: var(--para-color);
@@ -466,6 +474,10 @@ body {
     cursor: pointer;
 }
 
+.container .body-wrapper .body-content .middle-panel .candidate-wrapper .candidate .sortlist-btn button:hover {
+    background-color: var(--button-hover-red);
+}
+
 .hide {
     opacity: 0;
     transition: 0.5s ease-in-out;
@@ -473,12 +485,89 @@ body {
     
 }
 
+/* Right Panel */
 .container .body-wrapper .body-content .right-panel {
-    border: 1px solid black;
     position: fixed;
     width: 24%;
     right: 2rem;
     height: 100%;
     overflow-x: hidden;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }
+
+.container .body-wrapper .body-content .right-panel .right-wrapper{
+    width: 100%;
+    padding: 2rem 2rem;
+    row-gap: 1.5rem;
+    background-color: var(--white);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .filter-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .cand-filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .clear {
+    font-weight: 400;
+    font-size: 0.7rem;
+    color: var(--text-green);
+    cursor: pointer;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .exp-title-clear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .exp-title-clear .exp-text {
+    font-weight: 600;
+    color: var(--light-red);
+    font-size: 0.8rem;
+
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    align-items: center;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    color: var(--black);
+    font-weight: 600;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option .cand-count {
+    color: var(--text-gray);
+    font-weight: 300;
+}
+
+.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option input {
+    height: 1rem;
+}
+
+
+
