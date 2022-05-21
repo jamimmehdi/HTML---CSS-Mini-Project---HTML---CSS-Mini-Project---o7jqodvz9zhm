@@ -5,7 +5,7 @@ let candidates = {
             course: 'BCA',
             graduationYear: '2021',
             profileImage: './images/candidate-profile.jpg',
-            candidateDesc: 'Final year BCA student at The Oxford College of Science, Bangalore with excellent problem solving skills and ability to perform in a team. Ambitious to kick start the career with a globally recognized organization which will give me exposure to enhance my skills and knowledge for mutual benefits of the organization.',
+            candidateDesc: 'BCA Graduate from The Oxford College of Science, Bangalore with excellent problem solving skills and ability to perform in a team. Ambitious to kick start the career with a globally recognized organization which will give me exposure to enhance my skills and knowledge for mutual benefits of the organization.',
             skills: ['Fullstack', 'Frontend', 'Backend', 'React', 'Node JS', 'Mongo DB'],
             referalScore: '820',
             sortlistedCompany: '4'
@@ -33,23 +33,14 @@ let candidates = {
             sortlistedCompany: '5'
         },
 
-        {
-            candidateName: 'Jamim Mehdi Hussain Khan',
-            course: 'BCA',
-            graduationYear: '2021',
-            profileImage: './images/candidate-profile.jpg',
-            candidateDesc: 'Final year BCA student at The Oxford College of Science, Bangalore with excellent problem solving skills and ability to perform in a team. Ambitious to kick start the career with a globally recognized organization which will give me exposure to enhance my skills and knowledge for mutual benefits of the organization.',
-            skills: ['Fullstack', 'Frontend', 'Backend', 'React', 'Node JS', 'Mongo DB'],
-            referalScore: '820',
-            sortlistedCompany: '4'
-        },
     ],
 };
 
 for (let i of candidates.data) {
+    // console.log(i)
     //Create candidate card
     let candidateCard = document.createElement('div');
-    candidateCard.classList.add('candiate');
+    candidateCard.classList.add('candidate');
 
     //Create profile-title-wrapper
     let profile_title_wrapper = document.createElement('div');
@@ -73,7 +64,7 @@ for (let i of candidates.data) {
     let capitalizeName = i.candidateName.toLowerCase();
     let nameArray = capitalizeName.split(' ');
     for (let k = 0; k < nameArray.length; k++) {
-        
+
         nameArray[k] = nameArray[k].charAt(0).toUpperCase() + nameArray[k].slice(1);
     }
     let capitalizedName = nameArray.join(' ');
@@ -94,7 +85,7 @@ for (let i of candidates.data) {
     let icon_save = document.createElement('i');
     icon_save.classList.add('bi', 'bi-bookmark-dash-fill');
     let btn_text = document.createElement('span');
-    btn_text.textContent = 'Save Candidate'; 
+    btn_text.textContent = 'Save Candidate';
 
     button_save.appendChild(icon_save);
     button_save.appendChild(btn_text);
@@ -113,12 +104,12 @@ for (let i of candidates.data) {
 
     let stack_tags = document.createElement('div');
     stack_tags.classList.add('stack-tags')
-    for (j of i.skills) {
+    for (skill of i.skills) {
         let tags = document.createElement('div');
         tags.classList.add('tags');
 
         let tags_text = document.createElement('p');
-        tags_text.textContent = j;
+        tags_text.textContent = skill;
 
         tags.appendChild(tags_text);
         stack_tags.appendChild(tags);
@@ -174,7 +165,7 @@ for (let i of candidates.data) {
     sortlist_btn.classList.add('sortlist-btn');
 
     let sortlist_btn_btn = document.createElement('button');
-    sortlist_btn_btn.textContent = 'Sortlist dandidate';
+    sortlist_btn_btn.textContent = 'Sortlist candidate';
 
     sortlist_btn.appendChild(sortlist_btn_btn);
 
@@ -191,5 +182,56 @@ for (let i of candidates.data) {
     cardWrapper.appendChild(candidateCard);
 }
 
-let container = document.querySelectorAll('.candiate');
-console.log(container);
+// let container = document.querySelectorAll('.candiate');
+// console.log(container);
+
+// Search by button
+
+document.getElementById('search-btn').addEventListener('click', () => {
+    //initializations
+    let searchInput = document.getElementById('search-input').value.toLowerCase();
+
+    //Fetch all skills
+    let candSkills = document.querySelectorAll('.stack-tags');
+
+    //Fetch all containers
+    let candidateContainer = document.querySelectorAll('.candidate');
+
+    let candFound = 0;
+    //Loop all the skills array
+    for (let i = 0; i < candSkills.length; i++) {
+        for (let j = 0; j < candSkills[i].children.length; j++) {
+
+            if (searchInput === ' ' || searchInput === '') {
+                return false;
+            } else if (candSkills[i].children[j].textContent.toLowerCase() === searchInput) {
+                setTimeout(() => {
+                    candidateContainer[i].classList.remove('hide');
+                }, 300)
+                candFound++;
+                break;
+            } else {
+                setTimeout(() => {
+                    candidateContainer[i].classList.add('hide');
+                }, 300)
+            }
+        }
+    }
+
+    //Update candidate found text
+    if (candFound > 1) {
+        document.getElementById('candidate-found').textContent = `${candFound} candidates found`;
+    } else {
+        document.getElementById('candidate-found').textContent = `${candFound} candidate found`;
+    }
+    
+    
+})
+
+//Search on enter press
+document.getElementById('search-input').addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        document.getElementById('search-btn').click();
+    }
+})
