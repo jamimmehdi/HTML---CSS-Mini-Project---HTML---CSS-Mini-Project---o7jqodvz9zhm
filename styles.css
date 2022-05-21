@@ -12,11 +12,12 @@
     --off-white: #f8fafc;
     --option-background: #ffeeea;
     --option-background-hover: #fbf5f3;
-    --text-gray: #b8bfc7;
+    --text-gray: #a6abb0;
     --white: #ffff;
     --text-green: #32a3bb;
     --search-background: #f4fafc;
-    --para-color: #a3a9b1;
+    --para-color: #0f2b3c;
+    --hover-button: #efefef;
 }
 
 * {
@@ -241,6 +242,7 @@ body {
     flex-direction: column;
     row-gap: 1.1rem;
     border-radius: 12px;
+    box-shadow: 0px 16px 32px 0px rgba(233, 238, 242, 0.4);
 }
 
 .container .body-wrapper .body-content .middle-panel .search-container .search-text-wrapper {
@@ -284,6 +286,10 @@ body {
     width: 100%;
 }
 
+.outline {
+    border: 1px solid var(--green);
+}
+
 .container .body-wrapper .body-content .middle-panel .search-container .search-bar-wrapper button {
     padding: 0.7rem 1rem;
     border: none;
@@ -293,6 +299,10 @@ body {
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
+}
+
+.container .body-wrapper .body-content .middle-panel .search-container .search-bar-wrapper button:hover {
+    background-color: var(--hover-button);
 }
 
 .container .body-wrapper .body-content .middle-panel .search-container .search-result {
@@ -319,6 +329,7 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
+    box-shadow: 0px 16px 32px 0px rgba(233, 238, 242, 0.4);
 }
 
 .container .body-wrapper .body-content .middle-panel .candidate-wrapper .candidate .profile-title-wrapper {
@@ -397,7 +408,7 @@ body {
     width: 100%;
     height: 2px;
     background-color: var(--text-gray);
-    opacity: 0.5;
+    opacity: 0.1;
     border-radius: 2px;
 }
 

@@ -36,6 +36,15 @@ let candidates = {
     ],
 };
 
+//Update active style of search bar
+document.getElementById('search-input').onfocus = function() {
+    document.getElementById('search-bar').classList.add('outline');
+}
+
+document.getElementById('search-input').onblur = function() {
+    document.getElementById('search-bar').classList.remove('outline');
+}
+
 for (let i of candidates.data) {
     // console.log(i)
     //Create candidate card
@@ -182,9 +191,6 @@ for (let i of candidates.data) {
     cardWrapper.appendChild(candidateCard);
 }
 
-// let container = document.querySelectorAll('.candiate');
-// console.log(container);
-
 // Search by button
 
 document.getElementById('search-btn').addEventListener('click', () => {
@@ -204,7 +210,7 @@ document.getElementById('search-btn').addEventListener('click', () => {
 
             if (searchInput === ' ' || searchInput === '') {
                 return false;
-            } else if (candSkills[i].children[j].textContent.toLowerCase() === searchInput) {
+            } else if (candSkills[i].children[j].textContent.toLowerCase().includes(searchInput)) {
                 setTimeout(() => {
                     candidateContainer[i].classList.remove('hide');
                 }, 300)
