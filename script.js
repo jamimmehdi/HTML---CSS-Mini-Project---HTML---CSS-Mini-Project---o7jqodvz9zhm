@@ -7,7 +7,7 @@ let candidates = {
             profileImage: './images/candidate-profile.jpg',
             candidateDesc: 'BCA Graduate from The Oxford College of Science, Bangalore with excellent problem solving skills and ability to perform in a team. Ambitious to kick start the career with a globally recognized organization which will give me exposure to enhance my skills and knowledge for mutual benefits of the organization.',
             skills: ['Fullstack', 'Frontend', 'Backend', 'React', 'Node JS', 'Mongo DB'],
-            referalScore: '820',
+            referalScore: '400',
             sortlistedCompany: '4'
         },
 
@@ -18,7 +18,7 @@ let candidates = {
             profileImage: 'https://amirbehesti.netlify.app/assets/images/profile-image.jpg',
             candidateDesc: "I completed my B.Tech in Electrical Engineering by the mid of 2019, After that I was preparing for core Electrical jobs, and then in a span of 4-5 months COVID pandemic started. Since My teenage I'm always a Technology lover & love to explore new technologies, during pandemic many of my friends got placed with dream jobs which was a big Motivation for me. Then I set up my mind, and I started learning coding and learning new languages. I am a quick learner and eager to learn more and I am also try to most efficient in the work that i am given.",
             skills: ['Fullstack', 'Frontend', 'React', 'Node JS'],
-            referalScore: '850',
+            referalScore: '860',
             sortlistedCompany: '6'
         },
 
@@ -37,11 +37,11 @@ let candidates = {
 };
 
 //Update active style of search bar
-document.getElementById('search-input').onfocus = function() {
+document.getElementById('search-input').onfocus = function () {
     document.getElementById('search-bar').classList.add('outline');
 }
 
-document.getElementById('search-input').onblur = function() {
+document.getElementById('search-input').onblur = function () {
     document.getElementById('search-bar').classList.remove('outline');
 }
 
@@ -193,7 +193,6 @@ for (let i of candidates.data) {
 }
 
 // Search by button
-
 document.getElementById('search-btn').addEventListener('click', () => {
     //initializations
     let searchInput = document.getElementById('search-input').value.toLowerCase();
@@ -210,17 +209,17 @@ document.getElementById('search-btn').addEventListener('click', () => {
         for (let j = 0; j < candSkills[i].children.length; j++) {
 
             if (searchInput === ' ' || searchInput === '') {
-                return false;
+                candidateContainer[i].classList.remove('hide');
             } else if (candSkills[i].children[j].textContent.toLowerCase().includes(searchInput)) {
                 setTimeout(() => {
                     candidateContainer[i].classList.remove('hide');
-                }, 300)
+                }, 200)
                 candFound++;
                 break;
             } else {
                 setTimeout(() => {
                     candidateContainer[i].classList.add('hide');
-                }, 300)
+                }, 200)
             }
         }
     }
@@ -231,8 +230,8 @@ document.getElementById('search-btn').addEventListener('click', () => {
     } else {
         document.getElementById('candidate-found').textContent = `${candFound} candidate found`;
     }
-    
-    
+
+
 })
 
 //Search on enter press
@@ -240,5 +239,142 @@ document.getElementById('search-input').addEventListener('keypress', (event) => 
     if (event.key === 'Enter') {
         event.preventDefault();
         document.getElementById('search-btn').click();
+    }
+})
+
+//Referal Score filter
+
+//Filter <500
+let lessThan500 = document.getElementById('less-500');
+lessThan500.addEventListener('change', () => {
+
+    //Fetch all containers
+    let candidateContainer = document.querySelectorAll('.candidate');
+    //Fetch all referal score
+    let candReferalScore = document.querySelectorAll('.score-obtained');
+
+    if (lessThan500.checked) {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            //typecasted all text score to number for comparing
+            let referalScoreNum = +candReferalScore[i].textContent;
+
+            if (referalScoreNum < 500) {
+                candidateContainer[i].classList.remove('hide');
+            } else {
+                candidateContainer[i].classList.add('hide');
+            }
+        }
+    } else {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            candidateContainer[i].classList.remove('hide');
+        }
+    }
+})
+
+//Filter 500 - 600
+let bet500to600 = document.getElementById('bet-500-600');
+bet500to600.addEventListener('change', () => {
+
+    //Fetch all containers
+    let candidateContainer = document.querySelectorAll('.candidate');
+    //Fetch all referal score
+    let candReferalScore = document.querySelectorAll('.score-obtained');
+
+    if (bet500to600.checked) {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            //typecasted all text score to number for comparing
+            let referalScoreNum = +candReferalScore[i].textContent;
+
+            if (referalScoreNum >= 500 && referalScoreNum <= 600) {
+                candidateContainer[i].classList.remove('hide');
+            } else {
+                candidateContainer[i].classList.add('hide');
+            }
+        }
+    } else {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            candidateContainer[i].classList.remove('hide');
+        }
+    }
+})
+
+//Filter 600 - 700
+let bet600to700 = document.getElementById('bet-600-700');
+bet600to700.addEventListener('change', () => {
+
+    //Fetch all containers
+    let candidateContainer = document.querySelectorAll('.candidate');
+    //Fetch all referal score
+    let candReferalScore = document.querySelectorAll('.score-obtained');
+
+    if (bet600to700.checked) {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            //typecasted all text score to number for comparing
+            let referalScoreNum = +candReferalScore[i].textContent;
+
+            if (referalScoreNum >= 600 && referalScoreNum <= 700) {
+                candidateContainer[i].classList.remove('hide');
+            } else {
+                candidateContainer[i].classList.add('hide');
+            }
+        }
+    } else {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            candidateContainer[i].classList.remove('hide');
+        }
+    }
+})
+
+//Filter 700 - 850
+let bet700to850 = document.getElementById('bet-700-850');
+bet700to850.addEventListener('change', () => {
+
+    //Fetch all containers
+    let candidateContainer = document.querySelectorAll('.candidate');
+    //Fetch all referal score
+    let candReferalScore = document.querySelectorAll('.score-obtained');
+
+    if (bet700to850.checked) {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            //typecasted all text score to number for comparing
+            let referalScoreNum = +candReferalScore[i].textContent;
+
+            if (referalScoreNum >= 700 && referalScoreNum <= 850) {
+                candidateContainer[i].classList.remove('hide');
+            } else {
+                candidateContainer[i].classList.add('hide');
+            }
+        }
+    } else {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            candidateContainer[i].classList.remove('hide');
+        }
+    }
+})
+
+//Filter 850>
+let greaterThan850 = document.getElementById('more-850');
+greaterThan850.addEventListener('change', () => {
+
+    //Fetch all containers
+    let candidateContainer = document.querySelectorAll('.candidate');
+    //Fetch all referal score
+    let candReferalScore = document.querySelectorAll('.score-obtained');
+
+    if (greaterThan850.checked) {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            //typecasted all text score to number for comparing
+            let referalScoreNum = +candReferalScore[i].textContent;
+
+            if (referalScoreNum >= 850) {
+                candidateContainer[i].classList.remove('hide');
+            } else {
+                candidateContainer[i].classList.add('hide');
+            }
+        }
+    } else {
+        for (let i = 0; i < candReferalScore.length; i++) {
+            candidateContainer[i].classList.remove('hide');
+        }
     }
 })

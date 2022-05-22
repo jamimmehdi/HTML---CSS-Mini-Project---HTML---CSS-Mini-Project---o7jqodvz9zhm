@@ -28,6 +28,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     background-color: var(--off-white);
     color: var(--black);
@@ -211,7 +215,7 @@ body {
     position: fixed;
     width: 24%;
     left: 2rem;
-    height: 100%;
+    max-height: 85%;
     overflow-x: hidden;
     z-index: 1;
     display: flex;
@@ -219,12 +223,46 @@ body {
     row-gap: 1rem;
 }
 
-.container .body-wrapper .body-content .left-panel .com-profile-conainer{
+.side-wrapper .com-profile-wrapper {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.side-wrapper .com-profile-wrapper .com-profile-img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.side-wrapper .com-profile-wrapper .com-profile-img img {
+    height: 100%;
     width: 100%;
-    padding: 2rem 2rem;
-    row-gap: 1.5rem;
-    background-color: var(--white);
-    border-radius: 12px;
+    object-fit: cover;
+}
+
+.side-wrapper .com-profile-wrapper p {
+    font-weight: 700;
+}
+
+.side-wrapper .com-profile-wrapper .profile-btn-wrapper {
+    flex: 2;
+    display: flex;
+    justify-content: end;
+}
+
+.side-wrapper .com-profile-wrapper .profile-btn-wrapper button {
+    height: 2rem;
+    width: 2rem;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--off-white);
+    color: var(--text-green);
+    cursor: pointer;
+}
+
+.side-wrapper .com-profile-wrapper .profile-btn-wrapper button:hover {
+    background-color: var(--hover-button);
 }
 
 .container .body-wrapper .body-content .middle-panel {
@@ -409,7 +447,7 @@ body {
     border-radius: 10px;
     color: var(--text-gray);
     font-weight: 500;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
 }
 
 .container .body-wrapper .body-content .middle-panel .candidate-wrapper .candidate .divider {
@@ -490,7 +528,7 @@ body {
     position: fixed;
     width: 24%;
     right: 2rem;
-    height: 100%;
+    max-height: 85%;
     overflow-x: hidden;
     z-index: 1;
     display: flex;
@@ -498,7 +536,7 @@ body {
     row-gap: 1rem;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper{
+.side-wrapper{
     width: 100%;
     padding: 2rem 2rem;
     row-gap: 1.5rem;
@@ -509,50 +547,50 @@ body {
     row-gap: 1rem;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .filter-title {
+.side-wrapper .filter-title {
     font-size: 1rem;
     font-weight: 600;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .cand-filter-wrapper {
+.side-wrapper .cand-filter-wrapper {
     display: flex;
     justify-content: space-between;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .clear {
+.side-wrapper .clear {
     font-weight: 400;
     font-size: 0.7rem;
     color: var(--text-green);
     cursor: pointer;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .exp-title-clear {
+.side-wrapper .title-clear {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .exp-title-clear .exp-text {
+.side-wrapper .title-clear .text {
     font-weight: 600;
     color: var(--light-red);
     font-size: 0.8rem;
 
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options{
+.side-wrapper .options-wrapper{
     display: flex;
     flex-direction: column;
     row-gap: 0.5rem;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option {
+.side-wrapper .options-wrapper .option {
     display: flex;
     justify-content: space-between;
     font-size: 0.7rem;
     align-items: center;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option .checkbox-wrapper {
+.side-wrapper .options-wrapper .option .checkbox-wrapper {
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
@@ -560,12 +598,12 @@ body {
     font-weight: 600;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option .cand-count {
+.side-wrapper .options-wrapper .option .count {
     color: var(--text-gray);
     font-weight: 300;
 }
 
-.container .body-wrapper .body-content .right-panel .right-wrapper .exp-options .option input {
+.side-wrapper .options-wrapper .option input {
     height: 1rem;
 }
 
