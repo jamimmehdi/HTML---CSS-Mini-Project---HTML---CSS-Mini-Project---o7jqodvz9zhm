@@ -65,7 +65,9 @@
                     <div class="side-wrapper">
                         <div class="com-profile-wrapper">
                             <div class="com-profile-img">
-                                <img src="./images/zomato-logo.webp" alt="">
+                                <div class="img-wrapper">
+                                    <img src="./images/zomato-logo.webp" alt="">
+                                </div>
                             </div>
                             <p class="com-name">Zomato Limited</p>
                             <div class="profile-btn-wrapper">
@@ -73,37 +75,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="side-wrapper">
+                    <div id="shortlisted-candidate" class="side-wrapper sorted-cand">
                         <div class="title-clear">
                             <p class="text">Shortlisted Candidate</p>
                             <p id="clear-exp" class="clear">Clear</p>
                         </div>
-                        <div class="options-wrapper">
-                            <div class="option">
-                                <div class="checkbox-wrapper">
-                                    <input id="fulltime" class="check-box" type="checkbox">
-                                    <label for="fulltime">Full Time</label>
+                        <!-- <div class="shortlisted-candidate">
+                            <div class="short-cand-img">
+                                <div class="img-wrapper">
+                                    <img src="./images/candidate-profile.jpg" alt="">
                                 </div>
-                                <p id="fulltime-count" class="count">43 candidates</p>
                             </div>
-                            <div class="option">
-                                <div class="checkbox-wrapper">
-                                    <input id="freelance" class="check-box" type="checkbox">
-                                    <label for="freelance">Freelance</label>
-                                </div>
-                                <p id="freelance-count" class="count">13 candidates</p>
+                            <p class="short-cand-name">Jamim Mehdi Hussain Khan</p>
+                            <div class="resume-and-remove">
+                                <button type="button" class="resume-download"><i
+                                        class="bi bi-cloud-arrow-down-fill"></i></button>
+                                <button type="button" class="remove-shorlist"><i
+                                        class="bi bi-x-circle-fill"></i></button>
                             </div>
-                            <div class="option">
-                                <div class="checkbox-wrapper">
-                                    <input id="part-time" class="check-box" type="checkbox">
-                                    <label for="part-time">Part Time</label>
-                                </div>
-                                <p id="part-time-count" class="count">15 candidates</p>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
 
-                    
+
                 </section>
 
                 <!-- Middle -->
@@ -191,40 +184,40 @@
                     <div class="side-wrapper">
                         <div class="title-clear">
                             <p class="text">Referal Score</p>
-                            <p id="clear-exp" class="clear">Clear</p>
+                            <p id="clear-ref" class="clear">Clear</p>
                         </div>
                         <div class="options-wrapper">
                             <div class="option">
                                 <div class="checkbox-wrapper">
-                                    <input id="less-500" class="check-box" type="checkbox">
+                                    <input id="less-500" class="check-box ref" type="checkbox">
                                     <label for="less-500">Less than 500</label>
                                 </div>
                                 <p id="less-500-count" class="count">27 candidates</p>
                             </div>
                             <div class="option">
                                 <div class="checkbox-wrapper">
-                                    <input id="bet-500-600" class="check-box" type="checkbox">
+                                    <input id="bet-500-600" class="check-box ref" type="checkbox">
                                     <label for="bet-500-600">500 to 600</label>
                                 </div>
                                 <p id="bet-500-600-count" class="count">13 candidates</p>
                             </div>
                             <div class="option">
                                 <div class="checkbox-wrapper">
-                                    <input id="bet-600-700" class="check-box" type="checkbox">
+                                    <input id="bet-600-700" class="check-box ref" type="checkbox">
                                     <label for="bet-600-700">600 to 700</label>
                                 </div>
                                 <p id="bet-600-700-count" class="count">29 candidates</p>
                             </div>
                             <div class="option">
                                 <div class="checkbox-wrapper">
-                                    <input id="bet-700-850" class="check-box" type="checkbox">
+                                    <input id="bet-700-850" class="check-box ref" type="checkbox">
                                     <label for="bet-700-850">700 to 850</label>
                                 </div>
                                 <p id="bet-700-850-count" class="count">39 candidates</p>
                             </div>
                             <div class="option">
                                 <div class="checkbox-wrapper">
-                                    <input id="more-850" class="check-box" type="checkbox">
+                                    <input id="more-850" class="check-box ref" type="checkbox">
                                     <label for="more-850">More than 850</label>
                                 </div>
                                 <p id="more-850-count" class="count">56 candidates</p>

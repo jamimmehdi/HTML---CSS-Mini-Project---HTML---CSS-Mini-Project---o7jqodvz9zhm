@@ -8,7 +8,8 @@ let candidates = {
             candidateDesc: 'BCA Graduate from The Oxford College of Science, Bangalore with excellent problem solving skills and ability to perform in a team. Ambitious to kick start the career with a globally recognized organization which will give me exposure to enhance my skills and knowledge for mutual benefits of the organization.',
             skills: ['Fullstack', 'Frontend', 'Backend', 'React', 'Node JS', 'Mongo DB'],
             referalScore: '400',
-            sortlistedCompany: '4'
+            sortlistedCompany: '4',
+            resume: "https://jamimmehdi.netlify.app/",
         },
 
         {
@@ -19,7 +20,8 @@ let candidates = {
             candidateDesc: "I completed my B.Tech in Electrical Engineering by the mid of 2019, After that I was preparing for core Electrical jobs, and then in a span of 4-5 months COVID pandemic started. Since My teenage I'm always a Technology lover & love to explore new technologies, during pandemic many of my friends got placed with dream jobs which was a big Motivation for me. Then I set up my mind, and I started learning coding and learning new languages. I am a quick learner and eager to learn more and I am also try to most efficient in the work that i am given.",
             skills: ['Fullstack', 'Frontend', 'React', 'Node JS'],
             referalScore: '860',
-            sortlistedCompany: '6'
+            sortlistedCompany: '6',
+            resume: "https://amirbehesti.netlify.app/",
         },
 
         {
@@ -30,7 +32,8 @@ let candidates = {
             candidateDesc: "I completed my B. Tech in Computer science in 2020, just when COVID pandemic started. Didn't apply for any of college campus program because at that time i had something else in mind, which didn't went on course as i expected. After a year and a half i started practicing coding again and learning new languages. I am a quick learner and eager to learn more and i am also try to most efficient in the work that i am given.",
             skills: ['DSA', 'Backend', 'Node JS', 'Mongo DB'],
             referalScore: '840',
-            sortlistedCompany: '5'
+            sortlistedCompany: '5',
+            resume: "https://souravbanerjee.netlify.app/",
         },
 
     ],
@@ -378,3 +381,89 @@ greaterThan850.addEventListener('change', () => {
         }
     }
 })
+
+//Clear referal score
+let experienceFilterClear = document.getElementById('clear-ref');
+experienceFilterClear.addEventListener('click', function(){
+    let checkBoxWrapper = document.querySelectorAll('.ref');
+    
+    for (let i = 0; i < checkBoxWrapper.length; i++) {
+        if (checkBoxWrapper[i].checked) {
+            checkBoxWrapper[i].click();
+        }
+    }
+})
+
+//Sortlist Candidate
+const shortListedCandidateSet = new Set();
+let shortlistButton = document.querySelectorAll('.candidate');
+for (let i = 0; i < shortlistButton.length; i++) {
+    shortlistButton[i].children[4].children[2].children[0].addEventListener('click', () => {
+        let shortCandName = shortlistButton[i].children[0].children[1].children[0].textContent;
+        let shortCandImg = shortlistButton[i].children[0].children[0].children[0].currentSrc;
+        let resumeLink;
+
+        for (j of candidates.data) {
+            if (shortCandName.toLowerCase() === j.candidateName.toLowerCase()) {
+                resumeLink = j.resume;
+            }
+        }
+
+        console.log(resumeLink)
+        
+
+        //Main wrapper of shortlisted candidate
+        let shortlistedCandidateWrapper = document.getElementById('shortlisted-candidate');
+
+        if (shortListedCandidateSet.has(shortCandName)) {
+            alert('Candidate already shortlisted!')
+        } else {
+        //Candidate wrapper
+        let shortlistedCandidate = document.createElement('div');
+        shortlistedCandidate.classList.add('shortlisted-candidate');
+        
+        //Image wrapper
+        let shortCandImage = document.createElement('div');
+        shortCandImage.classList.add('short-cand-img');
+        let imageWrapper = document.createElement('div');
+        imageWrapper.classList.add('img-wrapper');
+        let image = document.createElement('img');
+        image.src = shortCandImg;
+        imageWrapper.appendChild(image);
+        shortCandImage.appendChild(imageWrapper);
+
+        //Name wrapper
+        let shortlistedCandName = document.createElement('p');
+        shortlistedCandName.classList.add('short-cand-name');
+        shortlistedCandName.textContent = shortCandName;
+
+        //Resume and delete button wrapper
+        let resumeAndRemoveWrapper = document.createElement('div');
+        resumeAndRemoveWrapper.classList.add('resume-and-remove');
+        let resumeButton = document.createElement('button');
+        resumeButton.classList.add('resume-download');
+        resumeButton.innerHTML = `<i class="bi bi-cloud-arrow-down-fill"></i>`;
+        //resume link
+        let link = `parent.open('${resumeLink}')`;
+        resumeButton.setAttribute('onClick', link)
+        resumeAndRemoveWrapper.appendChild(resumeButton);
+
+        //set Title
+        resumeButton.setAttribute('title', 'Download Resume')
+
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('remove-shorlist');
+        deleteButton.innerHTML = `<i class="bi bi-x-circle-fill"></i>`;
+
+        resumeAndRemoveWrapper.appendChild(deleteButton);
+
+        shortlistedCandidate.appendChild(shortCandImage);
+        shortlistedCandidate.appendChild(shortlistedCandName);
+        shortlistedCandidate.appendChild(resumeAndRemoveWrapper);
+
+        shortlistedCandidateWrapper.appendChild(shortlistedCandidate)
+        }
+
+        shortListedCandidateSet.add(shortCandName);
+    })
+}

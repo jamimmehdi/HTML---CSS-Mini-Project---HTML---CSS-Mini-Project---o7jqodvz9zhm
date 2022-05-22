@@ -201,11 +201,11 @@ body {
 }
 
 /* Scroll bar hide ------------------------------------------------------------------*/ 
-.container .body-wrapper .body-content .left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar, .middle-panel::-webkit-scrollbar {
+.container .body-wrapper .body-content .left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar, .middle-panel::-webkit-scrollbar, .sorted-cand::-webkit-scrollbar {
     display: none;
 }
 
-.left-panel, .right-panel, .middle-panel {
+.left-panel, .right-panel, .middle-panel, .sorted-cand {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -230,11 +230,16 @@ body {
 }
 
 .side-wrapper .com-profile-wrapper .com-profile-img {
-    height: 3rem;
-    width: 3rem;
+    flex: 2;
+}
+
+.side-wrapper .com-profile-wrapper .com-profile-img .img-wrapper{
+    height: 2.5rem;
+    width: 2.5rem;
     border-radius: 50%;
     overflow: hidden;
 }
+
 .side-wrapper .com-profile-wrapper .com-profile-img img {
     height: 100%;
     width: 100%;
@@ -243,10 +248,12 @@ body {
 
 .side-wrapper .com-profile-wrapper p {
     font-weight: 700;
+    width: 100%;
+    font-size: 0.7rem;
 }
 
 .side-wrapper .com-profile-wrapper .profile-btn-wrapper {
-    flex: 2;
+    flex: 1;
     display: flex;
     justify-content: end;
 }
@@ -263,6 +270,67 @@ body {
 
 .side-wrapper .com-profile-wrapper .profile-btn-wrapper button:hover {
     background-color: var(--hover-button);
+}
+
+.sorted-cand {
+    min-height: 15rem;
+    max-height: 15rem;
+    overflow-x: hidden;
+}
+
+.side-wrapper .shortlisted-candidate {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.side-wrapper .shortlisted-candidate .short-cand-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.side-wrapper .shortlisted-candidate .resume-and-remove {
+    flex: 2;
+    display: flex;
+    column-gap: 1rem;
+    justify-content: end;
+}
+
+.resume-and-remove .resume-download {
+    border: none;
+    background-color: var(--off-white);
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    color: var(--text-green);
+    cursor: pointer;
+}
+
+.resume-and-remove .remove-shorlist{
+    border: none;
+    background-color: var(--off-white);
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    color: var(--icon);
+    cursor: pointer;
+}
+
+.resume-and-remove .resume-download:hover, .resume-and-remove .remove-shorlist:hover {
+    background-color: var(--hover-button);
+}
+
+.side-wrapper .shortlisted-candidate .short-cand-img .img-wrapper {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.side-wrapper .shortlisted-candidate .short-cand-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .container .body-wrapper .body-content .middle-panel {
