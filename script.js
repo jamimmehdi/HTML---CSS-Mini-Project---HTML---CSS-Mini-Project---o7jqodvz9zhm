@@ -36,6 +36,41 @@ let candidates = {
             resume: "https://souravbanerjee.netlify.app/",
         },
 
+        {
+            candidateName: 'RISHIKESH S. BHOSALE',
+            course: 'B.Tech',
+            graduationYear: '2021',
+            profileImage: '#',
+            candidateDesc: "Total 5.0 years of experience including 3.0 year in java development. Involved in the requirement gathering, design, development, testing, implementation and warranty phases of software development projects. Innovative, quick learner, a good team player as well as an excellent individual contributor.",
+            skills: ['DSA', 'Backend', 'Node JS', 'Backend'],
+            referalScore: '805',
+            sortlistedCompany: '5',
+            resume: "https://rishikeshbhosale.github.io/CSS-Selectors-Basic-Selectors-Combinators-Id-selector-Class-selector---Post-Class---Responsive-/",
+        },
+
+        {
+            candidateName: 'RAVI GUPTA',
+            course: 'B.Com',
+            graduationYear: '2021',
+            profileImage: 'https://warm-kringle-9013be.netlify.app/image/profile-img.png',
+            candidateDesc: "I completed my Bachelor's Degree in B.com in 2021. But when i was in the first Year i found it's not interesting for me so i started to learn front-end developement from youtube and i learned it and i made some front-end project using pure HTML, CSS, JAVASCRIPT without using any framework.",
+            skills: ['Frontend', 'React', 'HTML', 'CSS', 'Javascript'],
+            referalScore: '790',
+            sortlistedCompany: '5',
+            resume: "https://warm-kringle-9013be.netlify.app/",
+        },
+
+        {
+            candidateName: 'ABHYUDAY SONI',
+            course: 'BE',
+            graduationYear: '2017',
+            profileImage: 'https://my-resume-lyart.vercel.app/image/pfp.jpg',
+            candidateDesc: "I am a java software developer with strong hold on problem solving techniques. I am also familiar with HTML, CSS, javascript and I have experience with web design and web development. I am a collaborator and have worked on GitHub and Git. I also have experience with operating document management office softwares like MS-Word, Excel, Powerpoint. I am also a part time photo/video editor familiar with adobe softwares like Photoshop, Premiere Pro and Illustrator.",
+            skills: ['Frontend', 'React', 'HTML', 'CSS', 'Javascript'],
+            referalScore: '740',
+            sortlistedCompany: '3',
+            resume: "https://my-resume-lyart.vercel.app/",
+        },
     ],
 };
 
@@ -476,6 +511,9 @@ for (let i = 0; i < shortlistButton.length; i++) {
             deleteButton.innerHTML = `<i class="bi bi-x-circle-fill"></i>`;
             //Onclick delete self
             deleteButton.setAttribute('onClick', 'removeSelf(this)');
+
+            //set Title
+            deleteButton.setAttribute('title', 'Remove candidate from shortlist')
 
             resumeAndRemoveWrapper.appendChild(deleteButton);
 

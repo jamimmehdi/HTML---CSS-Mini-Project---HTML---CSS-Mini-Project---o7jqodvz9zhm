@@ -201,19 +201,41 @@ body {
 }
 
 /* Scroll bar hide ------------------------------------------------------------------*/ 
-.container .body-wrapper .body-content .left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar, .middle-panel::-webkit-scrollbar, .sorted-cand::-webkit-scrollbar {
+.container .body-wrapper .body-content .left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar, .middle-panel::-webkit-scrollbar {
     display: none;
 }
 
-.left-panel, .right-panel, .middle-panel, .sorted-cand {
+.left-panel, .right-panel, .middle-panel {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 /* --------------------------------------------------------------------------------- */
 
+/* Styling scrollbar -----------------------------------*/
+/* width */
+.sorted-cand::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  
+  /* Track */
+  .sorted-cand::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  .sorted-cand::-webkit-scrollbar-thumb {
+    background: var(--text-green);
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  .sorted-cand::-webkit-scrollbar-thumb:hover {
+    background: var(--green); 
+  }
+/* ---------------------------------------------------- */
 .container .body-wrapper .body-content .left-panel {
     position: fixed;
-    width: 24%;
+    width: 20%;
     left: 2rem;
     max-height: 85%;
     overflow-x: hidden;
@@ -605,7 +627,7 @@ body {
 /* Right Panel */
 .container .body-wrapper .body-content .right-panel {
     position: fixed;
-    width: 24%;
+    width: 20%;
     right: 2rem;
     max-height: 85%;
     overflow-x: hidden;
