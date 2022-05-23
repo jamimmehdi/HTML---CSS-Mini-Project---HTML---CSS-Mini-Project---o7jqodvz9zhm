@@ -278,6 +278,17 @@ body {
     overflow-x: hidden;
 }
 
+.sorted-cand .empty-text {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-gray);
+    font-size: 1rem;
+    opacity: 0.5;
+}
+
 .side-wrapper .shortlisted-candidate {
     display: flex;
     align-items: center;
@@ -675,5 +686,6 @@ body {
     height: 1rem;
 }
 
-
-
+.hide-empty-text {
+    display: none;
+}

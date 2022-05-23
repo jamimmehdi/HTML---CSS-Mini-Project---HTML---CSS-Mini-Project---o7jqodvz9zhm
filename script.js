@@ -384,15 +384,38 @@ greaterThan850.addEventListener('change', () => {
 
 //Clear referal score
 let experienceFilterClear = document.getElementById('clear-ref');
-experienceFilterClear.addEventListener('click', function(){
+experienceFilterClear.addEventListener('click', function () {
     let checkBoxWrapper = document.querySelectorAll('.ref');
-    
+
     for (let i = 0; i < checkBoxWrapper.length; i++) {
         if (checkBoxWrapper[i].checked) {
             checkBoxWrapper[i].click();
         }
     }
 })
+
+//Empty shortlist text;
+let hideEmptyTest = function () {
+    let emptyShortlistText = document.getElementById('empty-text');
+    let shortlistedCandidateMain = document.getElementById('shortlisted-candidate');
+
+    if (shortlistedCandidateMain.children.length > 2) {
+        emptyShortlistText.classList.add('hide')
+    } else {
+        emptyShortlistText.classList.remove('hide')
+    }
+}
+
+//Remove self function
+let removeSelf = function(self) {
+    //fetch name
+    let deleteName = self.parentNode.parentNode.children[1].textContent;
+    shortListedCandidateSet.delete(deleteName);
+
+    self.parentNode.parentNode.remove()
+
+    hideEmptyTest();
+}
 
 //Sortlist Candidate
 const shortListedCandidateSet = new Set();
@@ -409,61 +432,67 @@ for (let i = 0; i < shortlistButton.length; i++) {
             }
         }
 
-        console.log(resumeLink)
-        
-
         //Main wrapper of shortlisted candidate
         let shortlistedCandidateWrapper = document.getElementById('shortlisted-candidate');
 
         if (shortListedCandidateSet.has(shortCandName)) {
             alert('Candidate already shortlisted!')
         } else {
-        //Candidate wrapper
-        let shortlistedCandidate = document.createElement('div');
-        shortlistedCandidate.classList.add('shortlisted-candidate');
-        
-        //Image wrapper
-        let shortCandImage = document.createElement('div');
-        shortCandImage.classList.add('short-cand-img');
-        let imageWrapper = document.createElement('div');
-        imageWrapper.classList.add('img-wrapper');
-        let image = document.createElement('img');
-        image.src = shortCandImg;
-        imageWrapper.appendChild(image);
-        shortCandImage.appendChild(imageWrapper);
+            //Candidate wrapper
+            let shortlistedCandidate = document.createElement('div');
+            shortlistedCandidate.classList.add('shortlisted-candidate');
 
-        //Name wrapper
-        let shortlistedCandName = document.createElement('p');
-        shortlistedCandName.classList.add('short-cand-name');
-        shortlistedCandName.textContent = shortCandName;
+            //Image wrapper
+            let shortCandImage = document.createElement('div');
+            shortCandImage.classList.add('short-cand-img');
+            let imageWrapper = document.createElement('div');
+            imageWrapper.classList.add('img-wrapper');
+            let image = document.createElement('img');
+            image.src = shortCandImg;
+            imageWrapper.appendChild(image);
+            shortCandImage.appendChild(imageWrapper);
 
-        //Resume and delete button wrapper
-        let resumeAndRemoveWrapper = document.createElement('div');
-        resumeAndRemoveWrapper.classList.add('resume-and-remove');
-        let resumeButton = document.createElement('button');
-        resumeButton.classList.add('resume-download');
-        resumeButton.innerHTML = `<i class="bi bi-cloud-arrow-down-fill"></i>`;
-        //resume link
-        let link = `parent.open('${resumeLink}')`;
-        resumeButton.setAttribute('onClick', link)
-        resumeAndRemoveWrapper.appendChild(resumeButton);
+            //Name wrapper
+            let shortlistedCandName = document.createElement('p');
+            shortlistedCandName.classList.add('short-cand-name');
+            shortlistedCandName.textContent = shortCandName;
 
-        //set Title
-        resumeButton.setAttribute('title', 'Download Resume')
+            //Resume and delete button wrapper
+            let resumeAndRemoveWrapper = document.createElement('div');
+            resumeAndRemoveWrapper.classList.add('resume-and-remove');
+            let resumeButton = document.createElement('button');
+            resumeButton.classList.add('resume-download');
+            resumeButton.innerHTML = `<i class="bi bi-cloud-arrow-down-fill"></i>`;
+            //resume link
+            let link = `parent.open('${resumeLink}')`;
+            resumeButton.setAttribute('onClick', link)
+            resumeAndRemoveWrapper.appendChild(resumeButton);
 
-        let deleteButton = document.createElement('button');
-        deleteButton.classList.add('remove-shorlist');
-        deleteButton.innerHTML = `<i class="bi bi-x-circle-fill"></i>`;
+            //set Title
+            resumeButton.setAttribute('title', 'Download Resume')
 
-        resumeAndRemoveWrapper.appendChild(deleteButton);
+            let deleteButton = document.createElement('button');
+            deleteButton.classList.add('remove-shorlist');
+            deleteButton.innerHTML = `<i class="bi bi-x-circle-fill"></i>`;
+            //Onclick delete self
+            deleteButton.setAttribute('onClick', 'removeSelf(this)');
 
-        shortlistedCandidate.appendChild(shortCandImage);
-        shortlistedCandidate.appendChild(shortlistedCandName);
-        shortlistedCandidate.appendChild(resumeAndRemoveWrapper);
+            resumeAndRemoveWrapper.appendChild(deleteButton);
 
-        shortlistedCandidateWrapper.appendChild(shortlistedCandidate)
+            shortlistedCandidate.appendChild(shortCandImage);
+            shortlistedCandidate.appendChild(shortlistedCandName);
+            shortlistedCandidate.appendChild(resumeAndRemoveWrapper);
+
+            shortlistedCandidateWrapper.appendChild(shortlistedCandidate)
         }
 
         shortListedCandidateSet.add(shortCandName);
+        hideEmptyTest();
     })
 }
+
+
+
+
+
+
